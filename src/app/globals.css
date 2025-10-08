@@ -1,22 +1,12 @@
 :root {
-  --background: #f5f5dc;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #f5f5dc; /* light beige */
+  --foreground: #171717; /* dark text */
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
@@ -24,10 +14,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body::before{
+body::before {
   content: '';
   background-image: url(/background/flowers.jpg);
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   opacity: 0.2;
   position: fixed;
@@ -49,16 +39,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-
-@media (max-width:430px) {
-  body::before{
-    background-position:left;
-    opacity: 0.1;
+@media (max-width: 430px) {
+  body::before {
+    background-position: left;
+    opacity: 0.2; /* match desktop opacity */
   }
 }
