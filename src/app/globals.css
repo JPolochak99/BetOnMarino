@@ -1,5 +1,5 @@
 :root {
-  --background: #fefae0;
+  --background: #f5f5dc;
   --foreground: #171717;
 }
 
@@ -24,6 +24,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before{
+  content: '';
+  background-image: url(/background/flowers.jpg);
+  background-size:cover;
+  background-position: center;
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -38,5 +52,13 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+
+@media (max-width:430px) {
+  body::before{
+    background-position:left;
+    opacity: 0.1;
   }
 }

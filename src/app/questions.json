@@ -1,0 +1,138 @@
+[
+    {
+        "id": "q1",
+        "text": "Who will the first dance be with, if there is one?",
+        "choices": 
+        {
+            "Danny and Maya": 100,
+            "Danny and Aunt Kim": 200,
+            "Maya and her dad": 200,
+            "Other": 200,
+            "None": 200
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q2",
+        "text": "What will Danny read his vows from?",
+        "choices": 
+        {
+            "Phone": 100,
+            "Paper": 200,
+            "Nothing, straight from the dome": 300
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q3",
+        "text": "What will Maya read her vows from?",
+        "choices": 
+        {
+            "Phone": 100,
+            "Paper": 200,
+            "Nothing, straight from the dome": 300
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q4",
+        "text": "Danny's vows take 2:30s?",
+        "choices": 
+        {
+            "Over": 150,
+            "Under": 150
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q5",
+        "text": "Maya's vows take 2:30s?",
+        "choices": 
+        {
+            "Over": 150,
+            "Under": 150
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q6",
+        "text": "Does Danny cry during the ceremony",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 300
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q7",
+        "text": "Does Maya cry during the ceremony?",
+        "choices": 
+        {
+            "No": 300,
+            "Yes": 100
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q8",
+        "text": "Does Aunt Kim cry during the ceremony?",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 100
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q9",
+        "text": "Does Maya's mom cry during the ceremony?",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 100
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q10",
+        "text": "Is Harley part of the ceremony?",
+        "choices": 
+        {
+            "No": 250,
+            "Yes": 150
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q11",
+        "text": "Does someone cough during the ceremony?",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 300
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q12",
+        "text": "Does someone sneeze during the ceremony?",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 500
+        },
+        "type": "numeric"
+    }
+]

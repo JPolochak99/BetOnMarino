@@ -8,11 +8,14 @@ export async function POST(request) {
     console.log("Request body:", body)
     const { name, answers } = body
 
-    const response = await prisma.response.create({
+    const response = await prisma.UserResponse.create({
       data: { name, answers },
     })
 
-    return new Response(JSON.stringify(response), { status: 200 })
+    return new Response(
+      JSON.stringify({ success: true, userId: response.id }),
+      { status: 200 }
+    )
   } catch (err) {
     console.error(err)
     return new Response(JSON.stringify({ error: 'Database error' }), { status: 500 })
