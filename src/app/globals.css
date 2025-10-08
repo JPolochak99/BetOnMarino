@@ -47,6 +47,6 @@ a {
 @media (max-width:430px) {
   body::before{
     background-position:left;
-    opacity: 0.2;
+    opacity: 0.1;
   }
 }
