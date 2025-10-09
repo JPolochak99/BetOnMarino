@@ -15,7 +15,8 @@ export const metadata = {
   title: "Marino Wedding Quiz",
   description: "Guess the future — one question at a time!",
   icons: {
-    icon: "/hamSandwhich.ico"  // Must be in the /public folder
+    icon: "/icons8-sandwhich-linear-colour-32.png",  
+    apple: "/icons8-sandwhich-linear-colour-32.png"
   },
 };
 
