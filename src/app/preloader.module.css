@@ -1,0 +1,48 @@
+.preloader {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .preloaderText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  
+  .preloaderText h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: .5em ;
+  }
+  
+  .preloaderText h4 {
+    font-size: clamp(1.1rem, 5vw, 2.5rem);
+  }
+  
+  .preloaderText h5 {
+    font-size: clamp(.5rem, 3vw, 1.1rem);
+  }
+  
+  .sandwhichContainer {
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    position: relative;
+    top: -5vw;
+  }
+  
+  @media (max-width: 480px) {
+    .sandwhichContainer {
+        width: 700px;
+        max-width: 1000px;
+    }
+  }

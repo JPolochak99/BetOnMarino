@@ -1,103 +1,75 @@
 "use client";
+
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import questions from "./questions.json";
 import { Great_Vibes } from "next/font/google";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Preloader from "./preloader";
 
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
+  // State setup
   const [name, setName] = useState("");
   const [answers, setAnswers] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [answersUploaded, setAnswersUploaded] = useState(false); 
   const [correctAnswers, setCorrectAnswers] = useState({});
-  const [loading, setLoading] = useState(true);
   const [leaderboard, setLeaderboard] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [showPreloader, setShowPreloader] = useState(true);
 
 
+  // Extract user submission from leaderboard
   const userSubmission = leaderboard.find(
-    (user) => String(user.id) === String(userId) // or match by ID/email/etc.
+    (user) => String(user.id) === String(userId)
   );
 
-
+  // Load all data in a single coordinated useEffect
   useEffect(() => {
-    async function fetchCorrectAnswers() {
+    async function loadInitialData() {
       try {
-        const res = await fetch("/api/correctAnswers");
-        const data = await res.json();
-        setCorrectAnswers(data);
+        const [scoresRes, answersStatusRes] = await Promise.all([
+          fetch("/api/scores"),
+          fetch("/api/hasCorrectAnswers"),
+        ]);
+  
+        const scoresData = await scoresRes.json();
+        const answersStatus = await answersStatusRes.json();
+  
+        setLeaderboard(scoresData);
+        setAnswersUploaded(answersStatus.hasCorrectAnswers);
+  
+        if (answersStatus.hasCorrectAnswers) {
+          const correctRes = await fetch("/api/correctAnswers");
+          const correctData = await correctRes.json();
+          setCorrectAnswers(correctData);
+        }
+  
+        if (document.cookie.includes("hasSubmitted=true")) {
+          setHasSubmitted(true);
+  
+          const match = document.cookie.match(/userId=([^;]+)/);
+          if (match && match[1]) {
+            setUserId(match[1]);
+          }
+        }
+  
       } catch (err) {
-        console.error("Failed to fetch correct answers", err);
+        console.error("Error loading data:", err);
       }
     }
   
-    if (answersUploaded) {
-      fetchCorrectAnswers();
-    }
-  }, [answersUploaded]);
-  
-  console.log("User ID from cookie:", userId);
-console.log("Leaderboard data:", leaderboard);
-
-  // Fetch leaderboard data
-  useEffect(() => {
-    async function fetchLeaderboard() {
-      const res = await fetch("/api/scores");
-      const data = await res.json();
-      setLeaderboard(data);
-      setLoading(false);
-    }
-
-    fetchLeaderboard();
+    loadInitialData();
   }, []);
 
-// see if answers are uploaded
-useEffect(() => {
-  async function fetchAnswersStatus() {
-    try {
-      const res = await fetch("/api/hasCorrectAnswers");
-      const data = await res.json();
-      
-      if (data.hasCorrectAnswers) {
-        setAnswersUploaded(true);  // Correctly set the state to true if answers are uploaded
-      } else {
-        setAnswersUploaded(false);
-      }
-    } catch (error) {
-      console.error("Error fetching answers status:", error);
-      setAnswersUploaded(false);
-    } finally {
-      setLoading(false);  // Ensure loading state is set to false when the request finishes
-    }
-  }
-
-  fetchAnswersStatus();
-}, []); // Empty dependency array means this runs once on component mount
-
-  
-  // Check if the user has already submitted
-  useEffect(() => {
-    if (document.cookie.includes("hasSubmitted=true")) {
-      setHasSubmitted(true);
-
-      const match = document.cookie.match(/userId=([^;]+)/);
-      if (match && match[1]) {
-        setUserId(match[1]);
-      }
-
-    }
-    setLoading(false);
-  }, []);
-
-  // Handle form submission
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Only submit if the user hasn't already
+    // Prevent duplicate submissions
     if (document.cookie.includes("hasSubmitted=true")) {
       alert("You’ve already submitted your answers!");
       return;
@@ -105,26 +77,32 @@ useEffect(() => {
 
     const formData = { name, answers };
 
-    const res = await fetch("/api/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await res.json();
-    console.log("Submitted:", data);
+      const data = await res.json();
 
-    if (res.ok) {
-      // Set cookie for 30 days
-      document.cookie = "hasSubmitted=true; path=/; max-age=" + 60 * 60 * 24 * 30;
-      document.cookie = `userId=${data.userId}; path=/; max-age=` + 60 * 60 * 24 * 30;
-      alert("Thanks for submitting your bets!");
-      setHasSubmitted(true); // Set hasSubmitted to true to display the leaderboard
-    } else {
+      if (res.ok) {
+        document.cookie = "hasSubmitted=true; path=/; max-age=" + 60 * 60 * 24 * 30;
+        document.cookie = `userId=${data.userId}; path=/; max-age=` + 60 * 60 * 24 * 30;
+
+        alert("Thanks for submitting your bets!");
+        setHasSubmitted(true);
+        setUserId(data.userId);
+      } else {
+        alert("There was an error submitting your answers.");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
       alert("There was an error submitting your answers.");
     }
   };
 
+  // Answer change handler
   const handleAnswerChange = (questionId, selectedChoice) => {
     setAnswers((prev) => ({
       ...prev,
@@ -132,8 +110,11 @@ useEffect(() => {
     }));
   };
 
-  // Render different sections based on conditions
-  if (loading) return <p>Loading leaderboard...</p>;
+  // Show preloader while loading
+  if (showPreloader) {
+    return <Preloader onComplete={() => setShowPreloader(false)} />;
+  }
+  
 
   return (
     <div className={`${styles.page}`}>

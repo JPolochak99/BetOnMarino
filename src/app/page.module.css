@@ -8,7 +8,6 @@
 
   min-height: 100svh;
   padding: 50px;
-  font-family: var(--font-geist-sans);
   color:#233E2A;
   
 }
@@ -170,9 +169,7 @@
   font-weight: bold;
 }
 
-.leaderboardTable td:nth-child(2) {
-  font-family: 'Great Vibes';
-}
+
 
 
 .personalBreakdownTitle{
