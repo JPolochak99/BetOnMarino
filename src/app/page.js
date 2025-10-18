@@ -246,7 +246,12 @@ export default function Home() {
           </>
         ) : (
           <>
-          <h2 className={styles.checkBackTitle}>Thank you for submitting — check back later for results!</h2>
+          <div className={styles.checkBackTitle}>
+            <h2>Thank you for submitting</h2>
+            <h3>Check back later for results</h3>  
+          </div>
+          
+
           <div className={styles.sandwhichContainer}>
             <DotLottieReact
                 src="https://lottie.host/385a81f1-2270-401a-936d-ba9a90fbde93/fIsnyetCxY.lottie"
