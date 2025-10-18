@@ -76,7 +76,7 @@ export default function Home() {
               {Object.entries(q.choices).map(([choiceText, pointValue]) => (
               <label key={choiceText}>
                 <div className={styles.inputLabelCombo}>
-                <input required
+                <input
                   type="radio"
                   name={q.id}
                   value={choiceText}
