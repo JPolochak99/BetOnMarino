@@ -251,8 +251,7 @@ export default function Home() {
             <DotLottieReact
                 src="https://lottie.host/385a81f1-2270-401a-936d-ba9a90fbde93/fIsnyetCxY.lottie"
                 autoplay
-                loop={true}                // play it once
-                dotLottieRefCallback={setPlayer}  // get reference to the player
+                loop={true}               
             />
         
         </div>
