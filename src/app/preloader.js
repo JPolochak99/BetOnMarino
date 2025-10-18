@@ -26,7 +26,7 @@ function Preloader({ onComplete }) {
   return (
     <div className={styles.preloader}>
         <div className={styles.preloaderText}>
-            <h1 className={greatVibes.className}>Welcome To Danny and Maya's Wedding</h1>
+            <h1 className={greatVibes.className}>Welcome To Danny and Myah's Wedding</h1>
             <h5>Help yourself to a ham sandwhich</h5>
         </div>
         <div className={styles.sandwhichContainer}>

@@ -1,20 +1,6 @@
 [
     {
         "id": "q1",
-        "text": "Who will the first dance be with, if there is one?",
-        "choices": 
-        {
-            "Danny and Maya": 100,
-            "Danny and Aunt Kim": 200,
-            "Maya and her dad": 200,
-            "Other": 200,
-            "None": 200
-        },
-        "type": "numeric"
-    },
-
-    {
-        "id": "q2",
         "text": "What will Danny read his vows from?",
         "choices": 
         {
@@ -26,8 +12,8 @@
     },
 
     {
-        "id": "q3",
-        "text": "What will Maya read her vows from?",
+        "id": "q2",
+        "text": "What will Myah read her vows from?",
         "choices": 
         {
             "Phone": 100,
@@ -38,7 +24,7 @@
     },
 
     {
-        "id": "q4",
+        "id": "q3",
         "text": "Danny's vows take 2:30s?",
         "choices": 
         {
@@ -49,8 +35,8 @@
     },
 
     {
-        "id": "q5",
-        "text": "Maya's vows take 2:30s?",
+        "id": "q4",
+        "text": "Myah's vows take 2:30s?",
         "choices": 
         {
             "Over": 150,
@@ -60,7 +46,7 @@
     },
 
     {
-        "id": "q6",
+        "id": "q5",
         "text": "Best man speach take 3:45s?",
         "choices": 
         {
@@ -72,7 +58,7 @@
 
 
     {
-        "id": "q7",
+        "id": "q6",
         "text": "Does Danny cry during the ceremony",
         "choices": 
         {
@@ -83,8 +69,8 @@
     },
 
     {
-        "id": "q8",
-        "text": "Does Maya cry during the ceremony?",
+        "id": "q7",
+        "text": "Does Myah cry during the ceremony?",
         "choices": 
         {
             "No": 300,
@@ -94,7 +80,7 @@
     },
 
     {
-        "id": "q9",
+        "id": "q8",
         "text": "Does Aunt Kim cry during the ceremony?",
         "choices": 
         {
@@ -105,8 +91,19 @@
     },
 
     {
+        "id": "q9",
+        "text": "Does Myah's mom cry during the ceremony?",
+        "choices": 
+        {
+            "No": 100,
+            "Yes": 100
+        },
+        "type": "numeric"
+    },
+
+    {
         "id": "q10",
-        "text": "Does Maya's mom cry during the ceremony?",
+        "text": "Does a child (under 6) cry during the ceremony?",
         "choices": 
         {
             "No": 100,
@@ -144,6 +141,20 @@
         {
             "No": 100,
             "Yes": 300
+        },
+        "type": "numeric"
+    },
+
+    {
+        "id": "q14",
+        "text": "Who will the first dance be with, if there is one?",
+        "choices": 
+        {
+            "Danny and Myah": 100,
+            "Danny and Aunt Kim": 200,
+            "Myah and her dad": 200,
+            "Other": 300,
+            "No first dance": 200
         },
         "type": "numeric"
     }

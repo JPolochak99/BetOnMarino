@@ -124,14 +124,14 @@ export default function Home() {
       {!hasSubmitted && !answersUploaded ?( 
         <>
         <div className={`${styles.header} ${greatVibes.className}`}>
-          <h1>Danny and Maya's Wedding</h1>
+          <h1>Danny and Myah's Wedding</h1>
           <h2>Please place your guesses below</h2>
         </div>
         </>
       ):(
         <>
         <div className={`${styles.header} ${greatVibes.className}`}>
-          <h1>Danny and Maya's Wedding</h1>
+          <h1>Danny and Myah's Wedding</h1>
         </div>
         </>  
       )}
@@ -215,7 +215,7 @@ export default function Home() {
               <div className={styles.personalBreakdownContainer}>
                 <div className={styles.scoreBarContainer}>
                   <CircularProgressbar
-                    value={(userSubmission.numberOfCorrectAnswers / 13) * 100}
+                    value={(userSubmission.numberOfCorrectAnswers / 14) * 100}
                     text={`${Math.round((userSubmission.numberOfCorrectAnswers / 12) * 100)}%`}
                     styles={buildStyles({
                       pathColor: '#233E2A',
