@@ -61,6 +61,18 @@
 
     {
         "id": "q6",
+        "text": "Best man speach take 2 mins?",
+        "choices": 
+        {
+            "Over": 150,
+            "Under": 150
+        },
+        "type": "numeric"
+    },
+
+
+    {
+        "id": "q7",
         "text": "Does Danny cry during the ceremony",
         "choices": 
         {
@@ -71,7 +83,7 @@
     },
 
     {
-        "id": "q7",
+        "id": "q8",
         "text": "Does Maya cry during the ceremony?",
         "choices": 
         {
@@ -82,7 +94,7 @@
     },
 
     {
-        "id": "q8",
+        "id": "q9",
         "text": "Does Aunt Kim cry during the ceremony?",
         "choices": 
         {
@@ -93,7 +105,7 @@
     },
 
     {
-        "id": "q9",
+        "id": "q10",
         "text": "Does Maya's mom cry during the ceremony?",
         "choices": 
         {
@@ -104,7 +116,7 @@
     },
 
     {
-        "id": "q10",
+        "id": "q11",
         "text": "Is Harley part of the ceremony?",
         "choices": 
         {
@@ -115,7 +127,7 @@
     },
 
     {
-        "id": "q11",
+        "id": "q12",
         "text": "Does someone cough during the ceremony?",
         "choices": 
         {
@@ -126,12 +138,12 @@
     },
 
     {
-        "id": "q12",
+        "id": "q13",
         "text": "Does someone sneeze during the ceremony?",
         "choices": 
         {
             "No": 100,
-            "Yes": 500
+            "Yes": 300
         },
         "type": "numeric"
     }

@@ -122,12 +122,15 @@ export default function Home() {
       <main className={styles.main}>
         <div className={`${styles.header} ${greatVibes.className}`}>
           <h1>Danny and Maya's Wedding</h1>
-          <h2>Please place your guesses below</h2>
+          
         </div>
 
         {/* If user has not submitted */}
         {!hasSubmitted && !answersUploaded ?(
           <>
+          <div className={`${styles.header} ${greatVibes.className}`}>
+            <h2>Please place your guesses below</h2>
+          </div>
             {/* FORM SECTION */}
             <div className={styles.formContainer}>
               <form onSubmit={handleSubmit} className={styles.form}>
@@ -202,7 +205,7 @@ export default function Home() {
               <div className={styles.personalBreakdownContainer}>
                 <div className={styles.scoreBarContainer}>
                   <CircularProgressbar
-                    value={(userSubmission.numberOfCorrectAnswers / 12) * 100}
+                    value={(userSubmission.numberOfCorrectAnswers / 13) * 100}
                     text={`${Math.round((userSubmission.numberOfCorrectAnswers / 12) * 100)}%`}
                     styles={buildStyles({
                       pathColor: '#233E2A',

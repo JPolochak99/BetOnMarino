@@ -68,13 +68,6 @@ export default function Home() {
  
         <div className={styles.formContainer}>
           <form onSubmit={handleSubmit} className={styles.form}>
-          
-
-            
-            <fieldset className={styles.question}>
-              <label>Name of the song Maya walks down the isle to?</label>
-              <input placeholder="What will the walkout song be" className={styles.textInputs}></input>
-            </fieldset>
             
             {questions.map((q) => (
             <div key={q.id}  className={styles.question}>
