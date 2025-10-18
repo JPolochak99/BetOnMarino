@@ -194,6 +194,32 @@
 
 
 
+
+.checkBackTitle{
+  font-size: clamp(1rem, 1vw, 2rem);
+}
+
+
+
+
+
+
+.sandwhichContainer {
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  position: relative;
+  top: -5vw;
+}
+
+@media (max-width: 480px) {
+  .sandwhichContainer {
+      width: 700px;
+      max-width: 1000px;
+  }
+}
+
+
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
