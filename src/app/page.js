@@ -120,17 +120,27 @@ export default function Home() {
   return (
     <div className={`${styles.page}`}>
       <main className={styles.main}>
+
+      {!hasSubmitted && !answersUploaded ?( 
+        <>
         <div className={`${styles.header} ${greatVibes.className}`}>
           <h1>Danny and Maya's Wedding</h1>
-          
+          <h2>Please place your guesses below</h2>
         </div>
+        </>
+      ):(
+        <>
+        <div className={`${styles.header} ${greatVibes.className}`}>
+          <h1>Danny and Maya's Wedding</h1>
+        </div>
+        </>  
+      )}
 
         {/* If user has not submitted */}
         {!hasSubmitted && !answersUploaded ?(
           <>
-          <div className={`${styles.header} ${greatVibes.className}`}>
-            <h2>Please place your guesses below</h2>
-          </div>
+          
+         
             {/* FORM SECTION */}
             <div className={styles.formContainer}>
               <form onSubmit={handleSubmit} className={styles.form}>
