@@ -6,7 +6,7 @@
         {
             "Phone": 100,
             "Paper": 200,
-            "Nothing, straight from the dome": 300
+            "Nothing (from the dome)": 300
         },
         "type": "numeric"
     },
@@ -18,14 +18,14 @@
         {
             "Phone": 100,
             "Paper": 200,
-            "Nothing, straight from the dome": 300
+            "Nothing (from the dome)": 300
         },
         "type": "numeric"
     },
 
     {
         "id": "q3",
-        "text": "Danny's vows take 2:30s?",
+        "text": "Danny's vows to take 2:30s?",
         "choices": 
         {
             "Over": 150,
@@ -36,7 +36,7 @@
 
     {
         "id": "q4",
-        "text": "Myah's vows take 2:30s?",
+        "text": "Myah's vows to take 2:30s?",
         "choices": 
         {
             "Over": 150,
@@ -47,7 +47,7 @@
 
     {
         "id": "q5",
-        "text": "Best man speach take 3:45s?",
+        "text": "Best man speach to take 3:45s?",
         "choices": 
         {
             "Over": 150,
@@ -114,7 +114,7 @@
 
     {
         "id": "q11",
-        "text": "Is Harley part of the ceremony?",
+        "text": "Is Harley (dog) part of the ceremony?",
         "choices": 
         {
             "No": 250,
