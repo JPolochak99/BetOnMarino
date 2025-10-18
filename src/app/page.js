@@ -7,6 +7,7 @@ import { Great_Vibes } from "next/font/google";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Preloader from "./preloader";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
@@ -244,7 +245,18 @@ export default function Home() {
       
           </>
         ) : (
+          <>
           <h2>Thank you for submitting — check back later for results!</h2>
+          <div className={styles.sandwhichContainer}>
+            <DotLottieReact
+                src="https://lottie.host/385a81f1-2270-401a-936d-ba9a90fbde93/fIsnyetCxY.lottie"
+                autoplay
+                loop={true}                // play it once
+                dotLottieRefCallback={setPlayer}  // get reference to the player
+            />
+        
+        </div>
+          </>
         )}
       </main>
     </div>
