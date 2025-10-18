@@ -197,6 +197,7 @@
 
 .checkBackTitle{
   font-size: clamp(1rem, 1vw, 2rem);
+  text-align: center;
 }
 
 
